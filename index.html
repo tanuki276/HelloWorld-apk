@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MAPNG Editor</title>
+  <style>
+    body { display: flex; font-family: sans-serif; gap: 20px; padding: 20px; }
+    canvas { border: 2px solid #333; background: #f0f0f0; cursor: crosshair; }
+    #sidebar { width: 300px; display: flex; flex-direction: column; gap: 10px; }
+    .box { border: 1px solid #ccc; padding: 10px; border-radius: 8px; background: #fff; }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+
+  <div>
+    <canvas id="visualCanvas"></canvas>
+    <div id="info" class="box" style="margin-top: 10px;">マウスを動かしてエリアを探索...</div>
+  </div>
+
+  <div id="sidebar">
+    <div class="box">
+      <h2>データ登録</h2>
+      <p>地図上に線を引いてから入力</p>
+      
+      <label>名称 (JA):</label>
+      <input type="text" id="nameJa" placeholder="例: a公国" value="a公国">
+      
+      <label>タイプ:</label>
+      <select id="typeSelect">
+        <option value="Country">Country (国)</option>
+        <option value="City">City (都市)</option>
+        <option value="Mountain">Mountain (自然)</option>
+      </select>
+
+      <br><br>
+      <button id="registerBtn" style="padding: 10px; background: #007bff; color: white; border: none;">MAPNGに埋め込む</button>
+    </div>
+
+    <div class="box">
+      <button id="exportBtn">JSONを出力 (Console)</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
